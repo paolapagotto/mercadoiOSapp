@@ -28,69 +28,8 @@ class User {
         //se cpf não for preenchido ou não tiver 11 char, print "cpf number invalid"
         //se cpf tiver 11 char e for novo, permirtir cadastro
         }
-    }
-    func editProfile(){
-        
-        
-    }
-    func consultDeliveries() -> String {
-        if checkOut! {
-            //se houver idDelivery válido no cpf do usuario
-            print("Your delivery \(Delivery:) is on it way")
-        } else {
-            print("There are no deliveries")
-        }
-        checkOut = nil
-    }
-    
 }
 
-
-class Delivery {
-    var idDelivery: Int
-    var deliveryAddress: String
-    var deliveryDate: String
-    var deliveryPrice: Double
-    var deliveryTax: Double
-    var paymentType: String
-    
-    init(idDelivery: Int, deliveryAddress: String, deliveryDate: String,
-         deliveryPrice: Double, deliveryTax: Double, paymentType: String){
-        
-        self.idDelivery = idDelivery
-        self.deliveryAddress = deliveryAddress
-        self.deliveryDate = deliveryDate
-        self.deliveryPrice = deliveryPrice
-        self.deliveryTax = deliveryTax
-        self.paymentType = paymentType
-    }
-    
-    //Métodos de entrega
-    func confirmProducts() -> Bool {
-        print("Confirm list of Products Selected:")
-        if confirmed! {
-            //imprimir propriedades dos produtos selecionados (lista)
-            print("")
-            return true
-        } else {
-            print("Keep buying at our website")
-        }
-    }
-    func confirmDeliveryAddress() -> Bool {
-        print("Please confirm the delivery address:")
-        if confirmed! {
-            return true
-        } else {
-            print("Please correct your address for delivery")
-        }
-    }
-    func selectPayment(){
-        print("Please select your payment type:")
-        //código aqui para selecionar tipo de pagamento (cartão débito ou crédito)
-        
-    }
-    
-}
 
 class Product {
     var idProduct: Int
@@ -145,5 +84,51 @@ class Product {
     
 }
 
+
+class Purchase {
+    var idPurchase: Int
+    var purchaseAddress: String
+    var purchaseDate: String
+    var purchasePrice: Double
+    var deliveryTax: Double
+    var paymentType: String
+    
+    init(idPurchase: Int, purchaseAddress: String, purchaseDate: String,
+         purchasePrice: Double, deliveryTax: Double, paymentType: String){
+        
+        self.idPurchase = idPurchase
+        self.purchaseAddress = purchaseAddress
+        self.purchaseDate = purchaseDate
+        self.purchasePrice = purchasePrice
+        self.deliveryTax = deliveryTax
+        self.paymentType = paymentType
+    }
+    
+    //Métodos de compra
+    func confirmProducts() -> Bool {
+        print("Confirm list of Products Selected:")
+        if confirmed! {
+            //imprimir propriedades dos produtos selecionados (lista)
+            print("")
+            return true
+        } else {
+            print("Keep buying at our app")
+        }
+    }
+    func confirmPurchaseAddress() -> Bool {
+        print("Please confirm the delivery address:")
+        if confirmed! {
+            return true
+        } else {
+            print("Please correct your address for delivery")
+        }
+    }
+    func selectPayment(){
+        print("Please select your payment type:")
+        //código aqui para selecionar tipo de pagamento (cartão débito ou crédito)
+        
+    }
+    
+}
 
 
