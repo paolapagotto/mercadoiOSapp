@@ -2,7 +2,7 @@ import UIKit
 
 var totalPrice: Double?
 var selected: Bool?
-
+var confirmed: Bool?
 
 class User {
     var name: String
@@ -56,11 +56,21 @@ class Delivery {
     }
     
     //Métodos de entrega
-    func confirmProducts(){
-        
+    func confirmProducts() -> Bool {
+        print("Confirm list of Products Selected:")
+        if confirmed! {
+            return true
+        } else {
+            print("Keep buying at our website")
+        }
     }
-    func confirmDeliveryAddress(){
-        
+    func confirmDeliveryAddress() -> Bool {
+        print("Please confirm the delivery address:")
+        if confirmed! {
+            return true
+        } else {
+            print("Please correct your address for delivery")
+        }
     }
     func selectPayment(){
         
@@ -78,7 +88,7 @@ class Product {
     var productAvailable: Bool
     
     
-    init(idProduct: Int, brand: String, var typeOfProduct: String, description: String, productPrice: Double, quantitySelected: Int, productAvailable: Bool){
+    init(idProduct: Int, brand: String, typeOfProduct: String, description: String, productPrice: Double, quantitySelected: Int, productAvailable: Bool){
         
         self.idProduct = idProduct
         self.brand = brand
@@ -92,8 +102,8 @@ class Product {
     //Métodos Produtos
     func searchProduct(){
         if productAvailable {
-            for attribute in Product(){
-                
+            for attribute in Product(attribute){
+                print(attribute)
             }
         } else {
             print("This product is not available anymore.")
@@ -115,7 +125,7 @@ class Product {
     }
     
     func checkOut(){
-        print("R$\(totalPrice ?? 0.00)")
+        print("TOTAL: R$\(totalPrice ?? 0.00)")
     }
     
 }
