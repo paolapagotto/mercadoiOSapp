@@ -22,15 +22,25 @@ class User {
         self.address = address
     }
     
-    //Métodos de cadastro Users (Cliente e Adm)
-    func register(){
-        
+    //Métodos de cadastro Users (Cliente & Adm)
+    func register() -> Bool {
+        //se cpf já existe, print "user already registered"
+        //se cpf não for preenchido ou não tiver 11 char, print "cpf number invalid"
+        //se cpf tiver 11 char e for novo, permirtir cadastro
+        }
     }
     func editProfile(){
         
-    }
-    func consultDeliveries(){
         
+    }
+    func consultDeliveries() -> String {
+        if checkOut! {
+            //se houver idDelivery válido no cpf do usuario
+            print("Your delivery \(Delivery:) is on it way")
+        } else {
+            print("There are no deliveries")
+        }
+        checkOut = nil
     }
     
 }
@@ -59,6 +69,8 @@ class Delivery {
     func confirmProducts() -> Bool {
         print("Confirm list of Products Selected:")
         if confirmed! {
+            //imprimir propriedades dos produtos selecionados (lista)
+            print("")
             return true
         } else {
             print("Keep buying at our website")
@@ -73,6 +85,8 @@ class Delivery {
         }
     }
     func selectPayment(){
+        print("Please select your payment type:")
+        //código aqui para selecionar tipo de pagamento (cartão débito ou crédito)
         
     }
     
@@ -102,6 +116,7 @@ class Product {
     //Métodos Produtos
     func searchProduct(){
         if productAvailable {
+            //print propriedades do produto
             for attribute in Product(attribute){
                 print(attribute)
             }
